@@ -1,0 +1,17 @@
+
+<!-- templates/myApp/task_confirm_delete.html -->
+{% extends 'base.html' %}
+{% block content %}
+<div class="header-bar">
+    <a href="{% url 'tasks' %}">&#8592; Volver</a>
+</div>
+
+<div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+        <p>¿Seguro que quieres borrar esta tarea? <b>"{{task}}"</b> </p>
+        <input class="button" type="submit" value="Borrar" />
+    </form>
+</div>
+{% endblock content %}
+

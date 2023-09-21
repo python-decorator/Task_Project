@@ -1,0 +1,27 @@
+
+<!-- templates/myApp/task_list_list_nostyle.html -->
+<div>
+    {% for task in tasks %}
+    <div>
+        <div>
+            {% if task.complete %}
+                <i><s><a href="{% url 'task-update' task.id %}">{{task}}</a></s></i> 
+            {% else %}
+                <a href="{% url 'task-update' task.id %}">{{task}}</a> 
+            {% endif %}
+        </div>
+        <div>
+            <a href="{% url 'task-delete' task.id %}">&#215;</a> <!-- + -->
+            <span>&nbsp;&#10247;</span> <!-- ⠇ -->
+        </div>
+    </div>
+
+    {% empty %}
+    <div>
+        <h3>No hay ninguna tarea creada.</h3>
+        <h3>¡Crear una <a href="{% url 'task-create' %}">Nueva Tarea</a>! </h3>
+    </div>
+    {% endfor %}
+</div>
+
+
